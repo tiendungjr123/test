@@ -16,7 +16,7 @@ export default function Login() {
 
     async function handleSubmit(){
         let item = {email,password}
-        let result = await fetch("http://localhost:3000/api/login",{
+        let result = await fetch("http://localhost:3000/login",{
             method: 'POST',
             headers:{
                 "Content-Type":"application/json",
