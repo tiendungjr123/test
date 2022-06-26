@@ -1,0 +1,41 @@
+.clubsList{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 20px;
+    justify-content: center;
+}
+
+.clubsText{
+    font-family: 'Poppins',sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 20px;
+    color: #1A1D1E;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.clubsText span{
+    color: #00A2C4;
+}
+
+.clubsShow{
+    font-family: 'Poppins',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    color: #6A6A6A;
+    margin-bottom: 5px;
+    text-align: center;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.clubsShow:hover{
+    color: #00A2C4;
+}
+
+
