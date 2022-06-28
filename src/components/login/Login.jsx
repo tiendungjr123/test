@@ -1,48 +1,28 @@
 import { Link } from "react-router-dom"
 import "./login.css"
-import React, { useState,useEffect } from 'react';
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const history = useHistory()
-
-    useEffect(() =>{
-        if(localStorage.getItem("user-info")){
-            history.push('/add')
-        }
-    },[])
-
-    async function handleSubmit(){
-        let item = {email,password}
-        let result = await fetch("http://localhost:3000/login",{
-            method: 'POST',
-            headers:{
-                "Content-Type":"application/json",
-                "Accpept":'application/json'
-            },
-            body: JSON.stringify(item)
+    const handleSubmit = async e => {
+        e.preventDefault();
+        let result =await fetch('http://staging.thenewgym.vn:3000/auth/login', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin':'*'
+                },
+            body: JSON.stringify({
+                'username':'111504@tng.vn',
+                'password':'1234567890'
+            })
         });
-
-        result = await result.json();
-        if(email == null || password == null){
-                alert('Vui lòng nhập username và password')
-        }
-        else if(email !== result.email || password !== result.password){
-            alert('Sai tên email hoặc mật khẩu')
-        }
-        else if(email === result.email && password === result.password){
-            alert('Đăng nhập thành công')
-            localStorage.setItem("user-info",JSON.stringify(result))
-            history.push('/add')
-            window.location.href ="home"
-        }
-        else{
-            alert('Đăng nhập thất bại')
-        }
-    
+        console.warn(result)
+        result = await result.json()
     }
+
   return (
     <div className="login">
         <p className="loginTitle">Welcome Back!</p>

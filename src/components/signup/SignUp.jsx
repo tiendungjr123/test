@@ -12,7 +12,7 @@ export default function SignUp() {
     async function handleSubmit(){
         let item = {username,email,phone,password}
 
-        let result = await fetch("http://localhost:3000/singup",{
+        let result = await fetch("http://localhost:3000/auth/register-member-account",{
             method: 'POST',
             body:JSON.stringify(item),
             headers:{
